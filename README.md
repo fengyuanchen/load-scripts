@@ -14,13 +14,32 @@ dist/
 └── load-scripts.esm.js    (ES Module)
 ```
 
-## Install
+## Getting started
 
-```sh
+### Installation
+
+```shell
 npm install load-scripts
 ```
 
-## Usage
+In browser:
+
+```html
+<script src="/path/to/load-scripts.js"></script>
+```
+
+### Usage
+
+#### Syntax
+
+```js
+loadScripts(script1, script2, ..., scriptN)
+  .then(() => {})
+  .catch((err) => {})
+  .finally(() => {});
+```
+
+#### Example
 
 ```js
 import loadScripts from 'load-scripts';
@@ -32,6 +51,16 @@ loadScripts('foo.js').then(() => {
 loadScripts('foo.js', 'bar.js').then(() => {
   console.log(window.Foo, window.Bar);
 });
+```
+
+In browser:
+
+```html
+<script>
+  loadScripts('foo.js').then(() => {
+    console.log(window.Foo);
+  });
+</script>
 ```
 
 ## Browser support
