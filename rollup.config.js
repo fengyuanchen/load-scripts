@@ -1,36 +1,33 @@
 const babel = require('rollup-plugin-babel');
+const changeCase = require('change-case');
+const createBanner = require('create-banner');
 const pkg = require('./package');
 
-const now = new Date();
-const banner = `/*!
- * load-scripts v${pkg.version}
- * https://github.com/fengyuanchen/${pkg.name}
- *
- * Copyright (c) ${now.getFullYear()} ${pkg.author.name}
- * Released under the ${pkg.license} license
- *
- * Date: ${now.toISOString()}
- */
-`;
+const name = changeCase.camelCase(pkg.name);
+const banner = createBanner({
+  data: {
+    year: '2018-present',
+  },
+});
 
 export default {
   input: 'src/index.js',
   output: [
     {
       banner,
-      file: 'dist/load-scripts.js',
+      name,
+      file: `dist/${pkg.name}.js`,
       format: 'umd',
-      name: 'loadScripts',
     },
     {
       banner,
-      file: 'dist/load-scripts.common.js',
+      file: `dist/${pkg.name}.common.js`,
       format: 'cjs',
     },
     {
       banner,
-      file: 'dist/load-scripts.esm.js',
-      format: 'es',
+      file: `dist/${pkg.name}.esm.js`,
+      format: 'esm',
     },
   ],
   plugins: [
