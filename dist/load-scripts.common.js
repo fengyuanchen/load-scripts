@@ -1,11 +1,11 @@
 /*!
- * load-scripts v0.1.0
+ * load-scripts v1.0.0
  * https://github.com/fengyuanchen/load-scripts
  *
- * Copyright (c) 2018 Chen Fengyuan
+ * Copyright 2018-present Chen Fengyuan
  * Released under the MIT license
  *
- * Date: 2018-04-11T14:04:22.060Z
+ * Date: 2018-05-21T13:27:51.028Z
  */
 
 'use strict';
