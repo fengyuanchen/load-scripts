@@ -10,7 +10,7 @@ const banner = createBanner({
   },
 });
 
-export default {
+module.exports = {
   input: 'src/index.js',
   output: [
     {
