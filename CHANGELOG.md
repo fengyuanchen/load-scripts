@@ -1,8 +1,8 @@
 # Changelog
 
-## next
+## 1.0.1 (Sep 19, 2021)
 
-- Avoid loading script repeatedly.
+- Avoid loading the script repeatedly.
 
 ## 1.0.0 (May 21, 2018)
 

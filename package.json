@@ -1,6 +1,6 @@
 {
   "name": "load-scripts",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Dynamic scripts loading for modern browsers.",
   "main": "dist/load-scripts.common.js",
   "module": "dist/load-scripts.esm.js",
