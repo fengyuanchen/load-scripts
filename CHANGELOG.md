@@ -1,5 +1,9 @@
 # Changelog
 
+## next
+
+- Avoid loading script repeatedly.
+
 ## 1.0.0 (May 21, 2018)
 
 - Released as a stable version.

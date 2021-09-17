@@ -4,8 +4,15 @@
  * @returns {Promise} - A Promise instance.
  */
 export default function loadScripts(...urls) {
-  return Promise.all(urls.map(url => new Promise((resolve, reject) => {
+  return Promise.all(urls.map((url) => new Promise((resolve, reject) => {
     const parent = document.head || document.body || document.documentElement;
+
+    // Avoid loading script repeatedly
+    if (parent.querySelector(`script[src^="${url}"]`)) {
+      resolve(url);
+      return;
+    }
+
     const script = document.createElement('script');
     const loadend = () => {
       script.onerror = null;
