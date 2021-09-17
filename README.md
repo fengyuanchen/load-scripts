@@ -1,6 +1,6 @@
 # load-scripts
 
-[![Build Status](https://img.shields.io/travis/fengyuanchen/load-scripts.svg)](https://travis-ci.org/fengyuanchen/load-scripts) [![Downloads](https://img.shields.io/npm/dm/load-scripts.svg)](https://www.npmjs.com/package/load-scripts) [![Version](https://img.shields.io/npm/v/load-scripts.svg)](https://www.npmjs.com/package/load-scripts)
+[![Downloads](https://img.shields.io/npm/dm/load-scripts.svg)](https://www.npmjs.com/package/load-scripts) [![Version](https://img.shields.io/npm/v/load-scripts.svg)](https://www.npmjs.com/package/load-scripts) [![Gzip Size](https://img.shields.io/bundlephobia/minzip/load-scripts.svg)](https://unpkg.com/load-scripts/dist/load-scripts.js)
 
 > Dynamic scripts loading for modern browsers.
 

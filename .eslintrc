@@ -3,5 +3,16 @@
   "extends": "airbnb-base",
   "env": {
     "browser": true
-  }
+  },
+  "overrides": [
+    {
+      "files": "test/index.js",
+      "env": {
+        "mocha": true
+      },
+      "globals": {
+        "expect": true
+      }
+    }
+  ]
 }
