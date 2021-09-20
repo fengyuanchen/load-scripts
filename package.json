@@ -5,9 +5,11 @@
   "main": "dist/load-scripts.common.js",
   "module": "dist/load-scripts.esm.js",
   "browser": "dist/load-scripts.js",
+  "types": "types/index.d.ts",
   "files": [
     "src",
-    "dist"
+    "dist",
+    "types"
   ],
   "scripts": {
     "build": "rollup -c",
