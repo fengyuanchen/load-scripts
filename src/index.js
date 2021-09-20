@@ -8,7 +8,7 @@ export default function loadScripts(...urls) {
     const parent = document.head || document.body || document.documentElement;
 
     // Avoid loading script repeatedly
-    if (parent.querySelector(`script[src^="${url}"]`)) {
+    if (parent.querySelector(`script[src*="${url}"]`)) {
       resolve(url);
       return;
     }
