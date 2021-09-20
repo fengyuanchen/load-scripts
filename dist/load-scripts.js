@@ -1,11 +1,11 @@
 /*!
- * load-scripts v1.0.1
+ * load-scripts v1.1.0
  * https://github.com/fengyuanchen/load-scripts
  *
  * Copyright 2018-present Chen Fengyuan
  * Released under the MIT license
  *
- * Date: 2021-09-19T12:57:32.024Z
+ * Date: 2021-09-20T02:13:24.987Z
  */
 
 (function (global, factory) {
@@ -28,7 +28,7 @@
       return new Promise(function (resolve, reject) {
         var parent = document.head || document.body || document.documentElement; // Avoid loading script repeatedly
 
-        if (parent.querySelector("script[src^=\"".concat(url, "\"]"))) {
+        if (parent.querySelector("script[src*=\"".concat(url, "\"]"))) {
           resolve(url);
           return;
         }

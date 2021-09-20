@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.0 (Sep 20, 2021)
+
+- Add type definitions for TypeScript.
+
 ## 1.0.1 (Sep 19, 2021)
 
 - Avoid loading the script repeatedly.
