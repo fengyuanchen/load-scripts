@@ -1,10 +1,5 @@
-/**
- * Dynamic scripts loading for modern browsers.
- * @param {string} urls - The scripts to load.
- * @returns {Promise} - A Promise instance.
- */
-export default function loadScripts(...urls) {
-  return Promise.all(urls.map((url) => new Promise((resolve, reject) => {
+export default function loadScripts(...urls: string[]): Promise<string[]> {
+  return Promise.all<string>(urls.map((url) => new Promise((resolve, reject) => {
     const parent = document.head || document.body || document.documentElement;
 
     // Avoid loading script repeatedly
@@ -20,11 +15,8 @@ export default function loadScripts(...urls) {
     };
 
     script.onerror = () => {
-      const err = new Error(`Failed to load script: ${url}`);
-
-      err.url = url;
       loadend();
-      reject(err);
+      reject(new Error(`Failed to load script: ${url}`));
     };
     script.onload = () => {
       loadend();

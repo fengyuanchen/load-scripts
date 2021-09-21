@@ -9,7 +9,7 @@ module.exports = (config) => {
     browsers: ['ChromeHeadless'],
     files: [
       'dist/load-scripts.js',
-      'test/index.js',
+      'test/index.spec.js',
       {
         pattern: 'test/scripts/*',
         included: false,

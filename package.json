@@ -2,21 +2,20 @@
   "name": "load-scripts",
   "version": "1.1.0",
   "description": "Dynamic scripts loading for modern browsers.",
-  "main": "dist/load-scripts.common.js",
+  "main": "dist/load-scripts.js",
   "module": "dist/load-scripts.esm.js",
-  "browser": "dist/load-scripts.js",
-  "types": "types/index.d.ts",
+  "types": "dist/load-scripts.d.ts",
   "files": [
-    "src",
-    "dist",
-    "types"
+    "dist"
   ],
   "scripts": {
-    "build": "rollup -c",
-    "compress": "uglifyjs dist/load-scripts.js -o dist/load-scripts.min.js -c -m --comments /^!/",
-    "lint": "eslint src test *.js --fix",
-    "release": "npm run lint && npm run build && npm run compress && npm run test",
-    "start": "rollup -c -w",
+    "build": "rollup -c --environment BUILD:production",
+    "build:api": "api-extractor run --local --verbose",
+    "build:dts": "tsc --outDir ./.temp --declaration --emitDeclarationOnly",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
+    "clean": "del-cli dist .temp",
+    "lint": "eslint . --ext .js,.ts --fix",
+    "release": "npm run clean && npm run lint && npm run build:dts && npm run build && npm run build:api && npm test && npm run changelog",
     "test": "karma start karma.conf.js"
   },
   "repository": {
@@ -44,12 +43,18 @@
   "devDependencies": {
     "@babel/core": "^7.15.5",
     "@babel/preset-env": "^7.15.6",
-    "@rollup/plugin-babel": "^5.3.0",
+    "@microsoft/api-extractor": "^7.18.9",
+    "@rollup/plugin-typescript": "^8.2.5",
+    "@typescript-eslint/eslint-plugin": "^4.31.2",
+    "@typescript-eslint/parser": "^4.31.2",
     "chai": "^4.3.4",
     "change-case": "^4.1.2",
+    "conventional-changelog-cli": "^2.1.1",
     "create-banner": "^2.0.0",
+    "del-cli": "^4.0.1",
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-airbnb-typescript": "^14.0.0",
     "eslint-plugin-import": "^2.24.2",
     "karma": "^6.3.4",
     "karma-chai": "^0.1.0",
@@ -59,6 +64,8 @@
     "mocha": "^9.1.1",
     "puppeteer": "^10.2.0",
     "rollup": "^2.56.3",
-    "uglify-js": "^3.14.2"
+    "rollup-plugin-terser": "^7.0.2",
+    "tslib": "^2.3.1",
+    "typescript": "^4.4.3"
   }
 }

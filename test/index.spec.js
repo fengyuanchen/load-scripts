@@ -17,9 +17,8 @@ describe('load-scripts', () => {
   it('should throw error', (done) => {
     const url = '/base/test/scripts/qux.js';
 
-    window.loadScripts(url).catch((err) => {
-      expect(err.message).to.include(err.url);
-      expect(err.url).to.equal(url);
+    window.loadScripts(url).catch((error) => {
+      expect(error.message).to.include(url);
       done();
     });
   });

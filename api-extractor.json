@@ -1,0 +1,16 @@
+{
+  "mainEntryPointFilePath": "./.temp/index.d.ts",
+  "apiReport": {
+    "enabled": false
+  },
+  "docModel": {
+    "enabled": false
+  },
+  "dtsRollup": {
+    "enabled": true,
+    "publicTrimmedFilePath": "./dist/<packageName>.d.ts"
+  },
+  "tsdocMetadata": {
+    "enabled": false
+  }
+}

@@ -4,14 +4,15 @@
 
 > Dynamic scripts loading for modern browsers.
 
-## Main
+## Main files
 
 ```text
 dist/
-├── load-scripts.js        (UMD)
-├── load-scripts.min.js    (UMD, compressed)
-├── load-scripts.common.js (CommonJS, default)
-└── load-scripts.esm.js    (ES Module)
+├── load-scripts.js         (UMD, default)
+├── load-scripts.min.js     (UMD, compressed)
+├── load-scripts.esm.js     (ECMAScript Module)
+├── load-scripts.esm.min.js (ECMAScript Module, compressed)
+└── load-scripts.d.ts       (TypeScript Declaration File)
 ```
 
 ## Getting started
@@ -72,6 +73,10 @@ In browser:
 - Edge (latest)
 - Internet Explorer 10+ (requires a `Promise` polyfill as [es6-promise](https://github.com/stefanpenner/es6-promise))
 
+## Versioning
+
+Maintained under the [Semantic Versioning guidelines](https://semver.org/).
+
 ## License
 
-[MIT](http://opensource.org/licenses/MIT) © [Chen Fengyuan](http://chenfengyuan.com)
+[MIT](https://opensource.org/licenses/MIT) © [Chen Fengyuan](https://chenfengyuan.com/)

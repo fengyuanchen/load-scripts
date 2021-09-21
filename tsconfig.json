@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "strict": true,
+    "target": "esnext",
+  },
+  "include": ["*.js", ".*.js", "src", "test"]
+}

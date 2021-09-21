@@ -1,39 +1,42 @@
-const { babel } = require('@rollup/plugin-babel');
-const changeCase = require('change-case');
-const createBanner = require('create-banner');
-const pkg = require('./package.json');
+import createBanner from 'create-banner';
+import typescript from '@rollup/plugin-typescript';
+import { camelCase } from 'change-case';
+import { terser } from 'rollup-plugin-terser';
+import pkg from './package.json';
 
-const name = changeCase.camelCase(pkg.name);
+const name = camelCase(pkg.name);
 const banner = createBanner({
   data: {
     year: '2018-present',
   },
+  template: 'inline',
 });
 
-module.exports = {
-  input: 'src/index.js',
-  output: [
-    {
+export default ['umd', 'esm'].map((format) => ({
+  input: 'src/index.ts',
+  output: ['development', 'production'].map((mode) => {
+    const output = {
       banner,
+      format,
       name,
-      file: `dist/${pkg.name}.js`,
-      format: 'umd',
-    },
-    {
-      banner,
-      file: `dist/${pkg.name}.common.js`,
-      format: 'cjs',
-      exports: 'auto',
-    },
-    {
-      banner,
-      file: `dist/${pkg.name}.esm.js`,
-      format: 'esm',
-    },
-  ],
+      file: pkg.main,
+    };
+
+    if (format === 'esm') {
+      output.file = pkg.module;
+    }
+
+    if (mode === 'production') {
+      output.compact = true;
+      output.file = output.file.replace(/(\.js)$/, '.min$1');
+      output.plugins = [
+        terser(),
+      ];
+    }
+
+    return output;
+  }),
   plugins: [
-    babel({
-      babelHelpers: 'bundled',
-    }),
+    typescript(),
   ],
-};
+}));
